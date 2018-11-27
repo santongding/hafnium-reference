@@ -1,0 +1,71 @@
+# Copyright 2018 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import("//build/toolchain/embedded.gni")
+import("//build/toolchain/host.gni")
+
+# TODO: add a gcc-4.9 or above prebuilt to check the gcc build too?
+
+group("root") {
+  deps = [
+    "//src:hafnium(:aem_v8a_fvp_clang)",
+    "//src:hafnium(:hikey_clang)",
+    "//src:hafnium(:qemu_aarch64_clang)",
+  ]
+}
+
+group("test_root") {
+  testonly = true
+
+  deps = [
+    "//src:unit_tests(:host_fake_clang)",
+    "//test/vm:gicv3_test(:qemu_aarch64_clang)",
+    "//test/vm:vm_tests(:qemu_aarch64_clang)",
+  ]
+}
+
+# Describe each of the platforms used in this project.
+
+host_toolchain("host_fake") {
+  use_platform = true
+  max_cpus = 4
+  max_vms = 6
+}
+
+aarch64_toolchain("aem_v8a_fvp") {
+  cpu = "cortex-a57+nofp"
+  origin_address = "0x88000000"
+  use_pl011 = true
+  pl011_base_address = "0x1c090000"
+  max_cpus = 8
+  max_vms = 16
+}
+
+aarch64_toolchain("qemu_aarch64") {
+  cpu = "cortex-a57+nofp"
+  origin_address = "0x40001000"
+  use_pl011 = true
+  pl011_base_address = "0x09000000"
+  max_cpus = 8
+  max_vms = 16
+}
+
+aarch64_toolchain("hikey") {
+  cpu = "cortex-a53+nofp"
+  origin_address = "0x35000000"
+  use_pl011 = true
+  pl011_base_address = "0xf7113000"  # UART3
+  max_cpus = 8
+  max_vms = 16
+}
