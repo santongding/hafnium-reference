@@ -30,8 +30,9 @@ group("test_root") {
 
   deps = [
     "//src:unit_tests(:host_fake_clang)",
-    "//test/vm:gicv3_test(:qemu_aarch64_clang)",
-    "//test/vm:vm_tests(:qemu_aarch64_clang)",
+    "//test/arch(:qemu_aarch64_clang)",
+    "//test/vmapi:gicv3_test(:qemu_aarch64_clang)",
+    "//test/vmapi(:qemu_aarch64_clang)",
   ]
 }
 
