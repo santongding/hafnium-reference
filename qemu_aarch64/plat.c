@@ -26,13 +26,13 @@ paddr_t plat_get_fdt_addr(void)
 	return pa_init(plat_fdt_addr);
 }
 
-void plat_get_initrd_range(paddr_t *begin, paddr_t *end)
+void plat_get_initrd_range(paddr_t *begin, paddr_t *end, struct mpool *ppool)
 {
 	struct fdt_header *fdt;
 	struct fdt_node n;
 
 	/* Get the memory map from the FDT. */
-	fdt = fdt_map(plat_get_fdt_addr(), &n);
+	fdt = fdt_map(plat_get_fdt_addr(), &n, ppool);
 	if (!fdt) {
 		return;
 	}
@@ -45,7 +45,7 @@ void plat_get_initrd_range(paddr_t *begin, paddr_t *end)
 	fdt_find_initrd(&n, begin, end);
 
 out_unmap_fdt:
-	if (!fdt_unmap(fdt)) {
+	if (!fdt_unmap(fdt, ppool)) {
 		dlog("Unable to unmap fdt.");
 	}
 }

@@ -15,6 +15,7 @@
  */
 
 #include "hf/addr.h"
+#include "hf/mpool.h"
 
 paddr_t plat_get_fdt_addr(void)
 {
@@ -22,8 +23,10 @@ paddr_t plat_get_fdt_addr(void)
 	return pa_init(0x82000000);
 }
 
-void plat_get_initrd_range(paddr_t *begin, paddr_t *end)
+void plat_get_initrd_range(paddr_t *begin, paddr_t *end, struct mpool *ppool)
 {
+	(void)ppool;
+
 	/* initrd is loaded at a known address but...
 	 * TODO: the size is hardcoded */
 	*begin = pa_init(0x84000000);
