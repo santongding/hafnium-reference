@@ -27,8 +27,10 @@ void plat_get_initrd_range(paddr_t *begin, paddr_t *end, struct mpool *ppool)
 {
 	(void)ppool;
 
-	/* initrd is loaded at a known address but...
-	 * TODO: the size is hardcoded */
+	/*
+	 * initrd is loaded at a known address but...
+	 * TODO: the size is hardcoded
+	 */
 	*begin = pa_init(0x84000000);
 	*end = pa_add(*begin, 0x12EF200);
 }
