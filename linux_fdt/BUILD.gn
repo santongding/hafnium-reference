@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-source_set("aem_v8a_fvp") {
-  deps = [
-    "//project/reference/linux_fdt",
+source_set("linux_fdt") {
+  sources = [
+    "plat.c",
+    "plat_entry.S",
   ]
 }

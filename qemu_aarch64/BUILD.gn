@@ -13,8 +13,7 @@
 # limitations under the License.
 
 source_set("qemu_aarch64") {
-  sources = [
-    "plat.c",
-    "plat_entry.S",
+  deps = [
+    "//project/reference/linux_fdt",
   ]
 }

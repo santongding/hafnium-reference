@@ -17,6 +17,7 @@
 #include "hf/addr.h"
 #include "hf/dlog.h"
 #include "hf/fdt_handler.h"
+#include "hf/mpool.h"
 
 /* This is set by plat_entry.S. */
 uintpaddr_t plat_fdt_addr;
