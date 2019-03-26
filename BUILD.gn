@@ -50,8 +50,10 @@ host_toolchain("host_fake") {
   max_vms = 6
 }
 
+# TODO: Change cpu back to +nofp with more granular control.
+
 aarch64_toolchain("aem_v8a_fvp") {
-  cpu = "cortex-a57+nofp"
+  cpu = "cortex-a57+fp"
   origin_address = "0x80000000"
   use_pl011 = true
   pl011_base_address = "0x1c090000"
@@ -63,8 +65,10 @@ aarch64_toolchain("aem_v8a_fvp") {
   max_vms = 16
 }
 
+# TODO: Change cpu back to +nofp with more granular control.
+
 aarch64_toolchain("qemu_aarch64") {
-  cpu = "cortex-a57+nofp"
+  cpu = "cortex-a57+fp"
   origin_address = "0x40001000"
   use_pl011 = true
   pl011_base_address = "0x09000000"
