@@ -52,7 +52,7 @@ host_toolchain("host_fake") {
 
 aarch64_toolchain("aem_v8a_fvp") {
   cpu = "cortex-a57+nofp"
-  origin_address = "0x88000000"
+  origin_address = "0x80000000"
   use_pl011 = true
   pl011_base_address = "0x1c090000"
   gic_version = 3
