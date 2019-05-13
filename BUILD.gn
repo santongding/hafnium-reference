@@ -32,12 +32,12 @@ group("test_root") {
     "//src:unit_tests(:host_fake_clang)",
     "//test/arch(:aem_v8a_fvp_clang)",
     "//test/arch(:qemu_aarch64_clang)",
-    "//test/linux(:aem_v8a_fvp_clang)",
-    "//test/linux(:qemu_aarch64_clang)",
-    "//test/vmapi(:aem_v8a_fvp_clang)",
-    "//test/vmapi(:qemu_aarch64_clang)",
-    "//test/vmapi/gicv3:gicv3_test(:aem_v8a_fvp_clang)",
-    "//test/vmapi/gicv3:gicv3_test(:qemu_aarch64_clang)",
+    "//test/linux(:aem_v8a_fvp_vm_clang)",
+    "//test/linux(:qemu_aarch64_vm_clang)",
+    "//test/vmapi(:aem_v8a_fvp_vm_clang)",
+    "//test/vmapi(:qemu_aarch64_vm_clang)",
+    "//test/vmapi/gicv3:gicv3_test(:aem_v8a_fvp_vm_clang)",
+    "//test/vmapi/gicv3:gicv3_test(:qemu_aarch64_vm_clang)",
   ]
 }
 
@@ -50,10 +50,8 @@ host_toolchain("host_fake") {
   max_vms = 6
 }
 
-# TODO: Change cpu back to +nofp with more granular control.
-
-aarch64_toolchain("aem_v8a_fvp") {
-  cpu = "cortex-a57+fp"
+aarch64_toolchains("aem_v8a_fvp") {
+  cpu = "cortex-a57"
   origin_address = "0x80000000"
   use_pl011 = true
   pl011_base_address = "0x1c090000"
@@ -65,10 +63,8 @@ aarch64_toolchain("aem_v8a_fvp") {
   max_vms = 16
 }
 
-# TODO: Change cpu back to +nofp with more granular control.
-
-aarch64_toolchain("qemu_aarch64") {
-  cpu = "cortex-a57+fp"
+aarch64_toolchains("qemu_aarch64") {
+  cpu = "cortex-a57"
   origin_address = "0x40001000"
   use_pl011 = true
   pl011_base_address = "0x09000000"
@@ -80,8 +76,8 @@ aarch64_toolchain("qemu_aarch64") {
   max_vms = 16
 }
 
-aarch64_toolchain("hikey") {
-  cpu = "cortex-a53+nofp"
+aarch64_toolchains("hikey") {
+  cpu = "cortex-a53"
   origin_address = "0x35000000"
   use_pl011 = true
   pl011_base_address = "0xf7113000"  # UART3
