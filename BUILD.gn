@@ -53,36 +53,42 @@ host_toolchain("host_fake") {
 aarch64_toolchains("aem_v8a_fvp") {
   cpu = "cortex-a57"
   origin_address = "0x80000000"
-  use_pl011 = true
-  pl011_base_address = "0x1c090000"
+  console = "//src/arch/aarch64/pl011"
   gic_version = 3
   gicd_base_address = "0x2f000000"
   gicr_base_address = "0x2f100000"
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
+  toolchain_args = {
+    pl011_base_address = "0x1c090000"
+  }
 }
 
 aarch64_toolchains("qemu_aarch64") {
   cpu = "cortex-a57"
   origin_address = "0x40001000"
-  use_pl011 = true
-  pl011_base_address = "0x09000000"
+  console = "//src/arch/aarch64/pl011"
   gic_version = 3
   gicd_base_address = "0x08000000"
   gicr_base_address = "0x080A0000"
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
+  toolchain_args = {
+    pl011_base_address = "0x09000000"
+  }
 }
 
 aarch64_toolchains("hikey") {
   cpu = "cortex-a53"
   origin_address = "0x35000000"
-  use_pl011 = true
-  pl011_base_address = "0xf7113000"  # UART3
+  console = "//src/arch/aarch64/pl011"
   gic_version = 2
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
+  toolchain_args = {
+    pl011_base_address = "0xf7113000"  # UART3
+  }
 }
