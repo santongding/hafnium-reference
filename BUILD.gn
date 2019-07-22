@@ -20,6 +20,7 @@ group("root") {
     "//src:hafnium(:aem_v8a_fvp_clang)",
     "//src:hafnium(:hikey_clang)",
     "//src:hafnium(:qemu_aarch64_clang)",
+    "//src:hafnium(:rpi4_clang)",
   ]
 }
 
@@ -30,6 +31,7 @@ group("test_root") {
     "//src:unit_tests(:host_fake_clang)",
     "//test/arch(:aem_v8a_fvp_clang)",
     "//test/arch(:qemu_aarch64_clang)",
+    "//test/arch(:rpi4_clang)",
     "//test/linux(:aem_v8a_fvp_vm_clang)",
     "//test/linux(:qemu_aarch64_vm_clang)",
     "//test/vmapi(:aem_v8a_fvp_vm_clang)",
@@ -91,5 +93,21 @@ aarch64_toolchains("hikey") {
   max_vms = 16
   toolchain_args = {
     pl011_base_address = "0xf7113000"  # UART3
+  }
+}
+
+aarch64_toolchains("rpi4") {
+  cpu = "cortex-a72"
+  origin_address = "0x80000"
+  boot_flow = "//src/boot_flow:linux"
+  console = "//project/reference/rpi:mini_uart"
+  gic_version = 2
+  heap_pages = 60
+  max_cpus = 4
+  max_vms = 16
+  toolchain_args = {
+    gpio_base_address = "0xfe200000"
+    aux_base_address = "0xfe215000"
+    core_freq_mhz = 500
   }
 }
