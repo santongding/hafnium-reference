@@ -53,6 +53,7 @@ host_toolchain("host_fake") {
 aarch64_toolchains("aem_v8a_fvp") {
   cpu = "cortex-a57"
   origin_address = "0x80000000"
+  boot_flow = "//src/boot_flow:linux"
   console = "//src/arch/aarch64/pl011"
   gic_version = 3
   gicd_base_address = "0x2f000000"
@@ -68,6 +69,7 @@ aarch64_toolchains("aem_v8a_fvp") {
 aarch64_toolchains("qemu_aarch64") {
   cpu = "cortex-a57"
   origin_address = "0x40001000"
+  boot_flow = "//src/boot_flow:linux"
   console = "//src/arch/aarch64/pl011"
   gic_version = 3
   gicd_base_address = "0x08000000"
@@ -83,6 +85,7 @@ aarch64_toolchains("qemu_aarch64") {
 aarch64_toolchains("hikey") {
   cpu = "cortex-a53"
   origin_address = "0x35000000"
+  boot_flow = "//src/boot_flow:android"
   console = "//src/arch/aarch64/pl011"
   gic_version = 2
   heap_pages = 60

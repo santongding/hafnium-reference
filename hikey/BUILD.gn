@@ -16,7 +16,6 @@ source_set("hikey") {
   sources = [
     "fdt.S",
     "initrd.S",
-    "plat.c",
   ]
   inputs = [
     "fdt.dtb",
