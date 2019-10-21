@@ -15,8 +15,6 @@
 import("//build/toolchain/embedded.gni")
 import("//build/toolchain/host.gni")
 
-# TODO: add a gcc-4.9 or above prebuilt to check the gcc build too?
-
 group("root") {
   deps = [
     "//src:hafnium(:aem_v8a_fvp_clang)",
