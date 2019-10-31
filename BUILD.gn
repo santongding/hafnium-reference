@@ -18,7 +18,6 @@ import("//build/toolchain/host.gni")
 group("root") {
   deps = [
     "//src:hafnium(:aem_v8a_fvp_clang)",
-    "//src:hafnium(:hikey_clang)",
     "//src:hafnium(:qemu_aarch64_clang)",
     "//src:hafnium(:rpi4_clang)",
   ]
@@ -79,20 +78,6 @@ aarch64_toolchains("qemu_aarch64") {
   max_vms = 16
   toolchain_args = {
     pl011_base_address = "0x09000000"
-  }
-}
-
-aarch64_toolchains("hikey") {
-  cpu = "cortex-a53"
-  origin_address = "0x35000000"
-  boot_flow = "//src/boot_flow:android"
-  console = "//src/arch/aarch64/pl011"
-  gic_version = 2
-  heap_pages = 60
-  max_cpus = 8
-  max_vms = 16
-  toolchain_args = {
-    pl011_base_address = "0xf7113000"  # UART3
   }
 }
 
