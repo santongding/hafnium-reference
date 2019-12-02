@@ -56,6 +56,7 @@ aarch64_toolchains("aem_v8a_fvp") {
   origin_address = "0x80000000"
   boot_flow = "//src/boot_flow:linux"
   console = "//src/arch/aarch64/pl011"
+  iommu = "//src/iommu:absent"
   gic_version = 3
   gicd_base_address = "0x2f000000"
   gicr_base_address = "0x2f100000"
@@ -72,6 +73,7 @@ aarch64_toolchains("qemu_aarch64") {
   origin_address = "0x40001000"
   boot_flow = "//src/boot_flow:linux"
   console = "//src/arch/aarch64/pl011"
+  iommu = "//src/iommu:absent"
   gic_version = 3
   gicd_base_address = "0x08000000"
   gicr_base_address = "0x080A0000"
@@ -88,6 +90,7 @@ aarch64_toolchains("rpi4") {
   origin_address = "0x80000"
   boot_flow = "//src/boot_flow:linux"
   console = "//project/reference/rpi:mini_uart"
+  iommu = "//src/iommu:absent"
   gic_version = 2
   heap_pages = 60
   max_cpus = 4
