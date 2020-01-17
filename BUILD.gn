@@ -21,6 +21,7 @@ group("root") {
     "//src:hafnium(:android_aarch64_clang)",
     "//src:hafnium(:qemu_aarch64_clang)",
     "//src:hafnium(:rpi4_clang)",
+    "//src/arch/aarch64/qemuloader:bl(:qemu_aarch64_clang)",
   ]
 }
 
