@@ -112,3 +112,13 @@ void plat_console_putchar(char c)
 	while ((io_read32(AUX_MU_LSR_REG) & AUX_MU_LSR_TX_IDLE) == 0) {
 	}
 }
+
+char plat_console_getchar(void)
+{
+	/* Wait for the transmitter to be ready to deliver a byte. */
+	while (!(io_read32(AUX_MU_LSR_REG) & 0x1)) {
+	}
+
+	/* Read data from transmitter FIFO. */
+	return (char)(io_read32(AUX_MU_IO_REG) & 0xff);
+}
