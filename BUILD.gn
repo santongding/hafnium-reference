@@ -58,7 +58,7 @@ host_toolchain("host_fake") {
 aarch64_toolchains("secure_aem_v8a_fvp") {
   cpu = "cortex-a57"
   origin_address = "0x06000000"
-  boot_flow = "//src/boot_flow:linux"
+  boot_flow = "//src/boot_flow:spmc"
   console = "//src/arch/aarch64/pl011"
   iommu = "//src/iommu:absent"
   gic_version = 3
@@ -153,7 +153,7 @@ aarch64_toolchains("android_aarch64") {
 aarch64_toolchains("secure_tc0") {
   cpu = "cortex-a57"
   origin_address = "0xfd000000"
-  boot_flow = "//src/boot_flow:linux"
+  boot_flow = "//src/boot_flow:spmc"
   console = "//src/arch/aarch64/pl011"
   iommu = "//src/iommu:absent"
   gic_version = 3
