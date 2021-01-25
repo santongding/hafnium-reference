@@ -68,6 +68,7 @@ aarch64_toolchains("secure_aem_v8a_fvp") {
   max_cpus = 8
   max_vms = 16
   toolchain_args = {
+    plat_psci = "//src/arch/aarch64/plat/psci:spmc"
     secure_world = "1"
     pl011_base_address = "0x1c090000"
   }
@@ -163,6 +164,7 @@ aarch64_toolchains("secure_tc0") {
   max_cpus = 4
   max_vms = 16
   toolchain_args = {
+    plat_psci = "//src/arch/aarch64/plat/psci:spmc"
     secure_world = "1"
     pl011_base_address = "0x7ff80000"
   }
