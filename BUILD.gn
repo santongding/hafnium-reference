@@ -149,7 +149,7 @@ aarch64_toolchains("android_aarch64") {
 # TC0 is a reference open source software stack for the first version of the
 # Total Compute Fixed Virtual Platform (FVP). More info at:
 # https://community.arm.com/developer/tools-software/oss-platforms/w/docs/606/total-compute
-# https://git.linaro.org/landing-teams/working/arm/arm-reference-platforms.git/about/docs/tc0/user-guide.rst
+# https://gitlab.arm.com/arm-reference-solutions/arm-reference-solutions-docs/-/blob/master/docs/totalcompute/tc0/user-guide.rst
 #
 # Secure hafnium build for tc0 platform. This builds reference Secure Partition
 # Manager (SPM) for tc0 with Armv8.4-A Secure-EL2 extension.
