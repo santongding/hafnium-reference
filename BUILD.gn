@@ -176,6 +176,7 @@ aarch64_toolchains("qemu_aarch64") {
   max_cpus = 8
   max_vms = 16
   toolchain_args = {
+    plat_ffa = "//src/arch/aarch64/plat/ffa:hypervisor"
     pl011_base_address = "0x09000000"
   }
 }
@@ -193,6 +194,7 @@ aarch64_toolchains("qemu_aarch64_vhe") {
   max_cpus = 8
   max_vms = 16
   toolchain_args = {
+    plat_ffa = "//src/arch/aarch64/plat/ffa:hypervisor"
     pl011_base_address = "0x09000000"
     enable_vhe = "1"
   }
