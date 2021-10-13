@@ -233,6 +233,7 @@ aarch64_toolchains("android_aarch64") {
   max_vms = 16
   toolchain_args = {
     pl011_base_address = "0x09000000"
+    plat_ffa = "//src/arch/aarch64/plat/ffa:hypervisor"
   }
 }
 
