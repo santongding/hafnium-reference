@@ -69,6 +69,7 @@ aarch64_toolchains("secure_aem_v8a_fvp") {
   gic_version = 3
   gicd_base_address = "0x2f000000"
   gicr_base_address = "0x2f100000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
@@ -94,6 +95,7 @@ aarch64_toolchains("secure_aem_v8a_fvp_vhe") {
   gic_version = 3
   gicd_base_address = "0x2f000000"
   gicr_base_address = "0x2f100000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
@@ -120,6 +122,7 @@ aarch64_toolchains("aem_v8a_fvp") {
   gic_version = 3
   gicd_base_address = "0x2f000000"
   gicr_base_address = "0x2f100000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
@@ -140,6 +143,7 @@ aarch64_toolchains("aem_v8a_fvp_vhe") {
   gic_version = 3
   gicd_base_address = "0x2f000000"
   gicr_base_address = "0x2f100000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
@@ -162,6 +166,7 @@ aarch64_toolchains("qemu_aarch64") {
   gic_version = 3
   gicd_base_address = "0x08000000"
   gicr_base_address = "0x080A0000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
@@ -180,6 +185,7 @@ aarch64_toolchains("qemu_aarch64_vhe") {
   gic_version = 3
   gicd_base_address = "0x08000000"
   gicr_base_address = "0x080A0000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
@@ -226,6 +232,7 @@ aarch64_toolchains("secure_tc") {
   gic_version = 4
   gicd_base_address = "0x30000000"
   gicr_base_address = "0x30080000"
+  gicr_frames = 8
   heap_pages = 60
   max_cpus = 8
   max_vms = 16
