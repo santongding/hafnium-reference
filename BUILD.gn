@@ -19,7 +19,8 @@ group("root") {
     "//src:hafnium(:secure_tc_clang)",
     "//src/arch/aarch64/qemuloader:bl(:qemu_aarch64_clang)",
     "//src/arch/aarch64/qemuloader:bl(:qemu_aarch64_vhe_clang)",
-
+    "//usr-vms(:qemu_aarch64_vm_clang)",
+    "//usr-src/ffa-client(//build/toolchain:aarch64_linux_clang)"
   ]
 }
 
@@ -49,7 +50,6 @@ group("test_root") {
     "//test/vmapi/arch/aarch64/gicv3:gicv3_test(:aem_v8a_fvp_vm_clang)",
     "//test/vmapi/arch/aarch64/gicv3:gicv3_test(:qemu_aarch64_vhe_vm_clang)",
     "//test/vmapi/arch/aarch64/gicv3:gicv3_test(:qemu_aarch64_vm_clang)",
-    "//usr-vms(:qemu_aarch64_vm_clang)"
   ]
 }
 
